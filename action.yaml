@@ -1,0 +1,15 @@
+name: Titan Scan
+description: None
+inputs:
+  targets:
+    required: true
+    description: the scan targets
+outputs:
+  stdout:
+    description: "result of mimICS command"
+runs:
+  using: "docker"
+  image: "docker://mimicsdemo.azurecr.io/mimics:titan"
+  args:
+    - scan
+    - ${{ inputs.targets }}
